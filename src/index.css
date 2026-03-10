@@ -11,3 +11,84 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+:root {
+  --display-size: 3.75rem;
+  --display-line: 4.375rem; 
+  
+  --title-1-size: 2.5rem;
+  --title-1-line: 2.8125rem;
+
+  --title-2-size: 1.875rem;
+  --title-2-line: 2.1875rem;
+
+  --title-3-size: 1.375rem;
+  --title-3-line: 1.75rem;
+
+  --large-text-size: 1.375rem;
+  --large-text-line: 1.625rem;
+
+  --medium-text-size: 1.125rem;
+  --medium-text-line: 1.5rem;
+
+  --small-text-size: 1rem;
+  --small-text-line: 1.375rem;
+}
+
+html {
+  font-size: 100%;
+}
+
+h1[data-type="display"] {
+  font-family: 'Roboto';
+  font-size: var(--display-size);
+  line-height: var(--display-line);           
+  font-weight: 700;
+}
+
+h1 {
+  font-size: var(--title-1-size);
+  line-height: var(--title-1-line);
+  font-weight: 700;
+}
+
+h2 {
+  font-size: var(--title-2-size);
+  line-height: var(--title-2-line);
+  font-weight: 700;
+}
+
+h3 {
+  font-size: var(--title-3-size);
+  line-height: var(--title-3-line);
+  font-weight: 700;
+}
+
+p {
+  
+  font-size: 1rem;
+  line-height: 1.375rem;
+  color: #565656;
+}
+
+p[data-size="large"] {
+    font-size: var(--large-text-size);
+    line-height: var(--large-text-line);
+    color: #565656;
+}
+
+p[data-size="medium"] {
+    font-size: var(--medium-text-size);
+    line-height: var(--medium-text-line);
+    color: #565656;
+}
+
+p[data-size="small"] {
+    font-size: var(--font-size);
+    line-height: var(--font-line);
+    color: #565656;
+}
+
+p:not(:last-child) {
+    margin-bottom: 0.5rem;
+}

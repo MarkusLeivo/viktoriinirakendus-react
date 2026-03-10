@@ -1,6 +1,8 @@
-import logo from './logo.svg';
+
+//import video from './ES_LogoAnimation.mp4';
 import './App.css';
 import { useState } from 'react';
+import Layout from "./components/Layout";
 
 const questions = [
   {
@@ -24,6 +26,7 @@ const questions = [
 ];
 
 function App() {
+  const [introFinished, setIntroFinished] = useState(localStorage.getItem("introPlayed") === "true");
   const [start, setStart] = useState(false);
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [selectedAnswer, setSelectedAnswer] = useState(null);
@@ -33,16 +36,38 @@ function App() {
   const [answers, setAnswers] = useState([]);
 
 
+
+  if (!introFinished) {
+    return (
+      <video
+        autoPlay
+        muted
+        className="background-video"
+        onEnded={() => {
+          localStorage.setItem("introPlayed", "true");
+          setIntroFinished(true);
+        }}
+      >
+        <source src="/ES_LogoAnimation.mp4" type="video/mp4" />
+      </video>
+    );
+  }
+
   if (!start) {
     return (
-      <div>
-        <h1>Tere tulemast!</h1>
-        <p>Testi oma teadmisi.</p>
+      <Layout>
+        <div className="content-box">
+          <h1>Tere tulemast!</h1>
+          
+          <div className="answer-result">
+            <p data-size="large">Testi oma teadmisi.</p>
+          </div>
 
-        <button onClick={() => setStart(true)}>
-          Alusta
-        </button>
-      </div>
+          <button onClick={() => setStart(true)} data-type="primary" data-size="default">
+            Alusta
+          </button>
+        </div>
+      </Layout>
     );
   }
 
@@ -58,36 +83,43 @@ function App() {
     }
 
     return (
-      <div>
-        <h1>Viktoriin on lõppenud!</h1>
+      <Layout>
+        <div className="content-box">
+          <h2>Viktoriin on lõppenud!</h2>
 
-        <h2>Sinu skoor: {score} / {questions.length}</h2>
+          <h2>Sinu skoor on: {score} / {questions.length}</h2>
 
-        <p>{message}</p>
+          <div className="answer-result">
+            <p data-size="large">{message}</p>
+          </div>
+          {/* <h3>Tulemused</h3> */}
 
-        <h3>Tulemused</h3>
-
-        <table border="1">
-          <thead>
-            <tr>
-              <th>Küsimus</th>
-              <th>Sinu vastus</th>
-              <th>Tulemus</th>
-            </tr>
-          </thead>
-
-          <tbody>
-            {answers.map((a, index) => (
-              <tr key={index}>
-                <td>{a.question}</td>
-                <td>{a.selected}</td>
-                <td>{a.correct ? "Õige" : "Vale"}</td>
+          <table className="results-table" border="1">
+            <thead>
+              <tr>
+                <th>Küsimus</th>
+                <th>Õige vastus</th>
+                <th>Sinu vastus</th>
+                <th>Tulemus</th>
               </tr>
-            ))}
-          </tbody>
-        </table>
+            </thead>
 
-      </div>
+            <tbody>
+              {answers.map((a) => (
+                <tr key={a.id}>
+                  <td><p data-size="medium">{a.question}</p></td>
+                  <td><p data-size="medium">{a.correctAnswer}</p></td>
+                  <td><p data-size="medium">{a.selected}</p></td>
+                  <td className={a.correct ? "result-correct" : "result-wrong"}>
+                    <p data-size="medium">{a.correct ? "Õige" : "Vale"}</p>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+
+        </div>
+      </Layout>
 
     );
   }
@@ -108,8 +140,10 @@ function App() {
     setAnswers([
       ...answers,
       {
+        id: question.id,
         question: question.question,
         selected: option,
+        correctAnswer: question.correct,
         correct: isCorrect
       }
     ]);
@@ -127,35 +161,53 @@ function App() {
   }
 
   return (
-    <div>
-      <h2>{question.question}</h2>
-      {question.options.map((option) => (
-        <button
-          key={option}
-          onClick={() => handleAnswer(option)}
-          disabled={showFeedback}
-          >
-            {option}
-          </button>
-      ))}
+    <Layout>
+      <div className="content-box">
+        <h1>{question.question}</h1>
+        {question.options.map((option) => {
 
-      {showFeedback && (
-        <div>
-          {selectedAnswer === question.correct ? (
-            <p>Õige vastus!</p>
-          ) : (
-            <p>Vale! Õige vastus oli: {question.correct}</p>
-          )}
+          let buttonClass = "answer-button";
 
-          <button onClick={nextQuestion}>
-            {currentQuestion === questions.length - 1
-              ? "Lõpeta viktoriin"
-              : "Järgmine küsimus"
+          if (showFeedback) {
+            if (option === question.correct) {
+              buttonClass += " correct";
+            } else {
+              buttonClass += " wrong";
             }
-          </button>
-        </div>
-      )}
-    </div>
+          }
+
+          return (
+            <button
+              className={buttonClass}
+              key={option}
+              onClick={() => handleAnswer(option)}
+              disabled={showFeedback}
+              data-type={showFeedback ? "disabled" : "secondary"}
+              data-size="default"
+            >
+              <h3>{option}</h3>
+            </button>
+          );
+        })}
+
+        {showFeedback && (
+          <div className="answer-result">
+            {selectedAnswer === question.correct ? (
+              <p data-size="large">Õige vastus!</p>
+            ) : (
+              <p data-size="large">Vale! Õige vastus on: {question.correct}</p>
+            )}
+
+            <button onClick={nextQuestion} data-type="primary" data-size="default">
+              {currentQuestion === questions.length - 1
+                ? "Lõpeta viktoriin"
+                : "Järgmine küsimus"
+              }
+            </button>
+          </div>
+        )}
+      </div>
+    </Layout>
   );
 }
 
