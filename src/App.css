@@ -2,6 +2,7 @@
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  background-color: #f0f0f0;
 }
 
 .navbar {
@@ -56,6 +57,10 @@
 .main-layout {
   flex: 1;
   display: flex;
+  background-color: #f0f0f0;
+  justify-content: center;
+  padding: 40px;
+  align-items: flex-start;
 }
 
 .sidebar {
@@ -80,6 +85,14 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  background-color: #f8f8f8;
+  padding: 40px;
+  /* border-radius: 12px; */
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  min-width: 620px;
+  max-width: 900px;
+  /* width: 90%; */
+  
 }
 
 .footer {
@@ -129,6 +142,7 @@ button {
   margin-top: 0;
   margin-bottom: 0;
   transition-duration: 100ms;
+  cursor: pointer;
 }
 
 button[data-type~="primary"] {
@@ -161,6 +175,7 @@ button[data-type~="disabled"] {
   background-color: #DDD;
   color: #565656;
   border: 2px solid #DDD;
+  cursor: not-allowed;
 }
 
 .answer-button {
@@ -186,6 +201,7 @@ button[data-type~="disabled"] {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  padding: 10px;
 
 }
 
@@ -235,4 +251,32 @@ button[data-type~="disabled"] {
   color: #DC1919;
   border-right: 4px solid #DC1919;
   /* font-weight: bold; */
+}
+
+.scroll-to-top {
+  /* display: none; */
+  display: flex;
+  position: fixed;
+  bottom: 24px;
+  right: 32px;
+  border: 2px solid #FFF;
+  padding: 8px 24px 8px 24px;
+  gap: 8px;
+  letter-spacing: 0.8px;
+  height: fit-content;
+  background-color: #000;
+  color: #FFF;
+    
+}
+
+.scroll-to-top:hover {
+  background-color: #FFF;
+  border: 2px solid #000;
+  color: #000;
+  
+}
+
+.scroll-to-top::after {
+  content: "\1F871";
+  margin-top: -8px;
 }
