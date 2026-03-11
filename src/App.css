@@ -207,6 +207,7 @@ button[data-type~="disabled"] {
 
 .results-table {
   border-collapse: collapse;
+  margin-top: 40px;
   
 }
 
