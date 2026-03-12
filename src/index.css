@@ -65,30 +65,25 @@ h3 {
 }
 
 p {
-  
   font-size: 1rem;
   line-height: 1.375rem;
   color: #565656;
 }
 
 p[data-size="large"] {
-    font-size: var(--large-text-size);
-    line-height: var(--large-text-line);
-    color: #565656;
+  font-size: var(--large-text-size);
+  line-height: var(--large-text-line);
+  color: #565656;
 }
 
 p[data-size="medium"] {
-    font-size: var(--medium-text-size);
-    line-height: var(--medium-text-line);
-    color: #565656;
+  font-size: var(--medium-text-size);
+  line-height: var(--medium-text-line);
+  color: #565656;
 }
 
 p[data-size="small"] {
-    font-size: var(--font-size);
-    line-height: var(--font-line);
-    color: #565656;
+  font-size: var(--font-size);
+  line-height: var(--font-line);
+  color: #565656;
 }
-
-/* p:not(:last-child) {
-    margin-bottom: 0.5rem;
-} */

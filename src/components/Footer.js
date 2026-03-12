@@ -28,6 +28,9 @@ function Footer() {
   return (
     <footer className="footer">
       {showScrollTop && (<button className="scroll-to-top" onClick={scrollToTop}> ÜLES </button>)}
+        <a href="https://github.com/MarkusLeivo/viktoriinirakendus-react" target="_blank" rel="noopener noreferrer" className="href-link">
+          GitHub
+        </a>
     </footer>
   );
 }
