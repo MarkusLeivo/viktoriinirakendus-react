@@ -3,7 +3,7 @@ function Header() {
     <header className="navbar">
         <div className="meta-container"></div>
         <div className="nav-container">
-            <img src={process.env.PUBLIC_URL + "/ES_Logo.svg"} alt="logo" className="logo" />
+            <img src="./ES_Logo.svg" alt="logo" className="logo" />
         </div>
     </header>
   );
