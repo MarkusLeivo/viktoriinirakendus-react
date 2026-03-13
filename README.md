@@ -21,6 +21,7 @@ Viktoriin koosneb kümnest valikvastustega küsimusest. Kasutaja saab iga küsim
 - Lehe uuendamisel säilib viktoriini olek 
 - Pikematel lehtedel "Üles" nupp lehe kerimiseks
 - Kujundus on kooskõlas Statistikaameti CVI-ga
+- Leht töötab ka mobiilivaates
 
 ## Struktuur
 - "components" kaustas on UI elemendid nagu footer, header, sidebar ja layout.
