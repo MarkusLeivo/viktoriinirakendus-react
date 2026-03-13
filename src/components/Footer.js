@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
 
-
 function Footer() {
   const [showScrollTop, setShowScrollTop] = useState(false);
 
@@ -34,6 +33,5 @@ function Footer() {
     </footer>
   );
 }
-
 
 export default Footer;

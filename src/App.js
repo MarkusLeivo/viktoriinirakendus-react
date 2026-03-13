@@ -243,7 +243,7 @@ function App() {
       <div className="content-box">
         <p data-size="medium">Küsimus {currentQuestion + 1} / {shuffledQuestions.length}</p>
         <h2 data-testid="question">{question.question}</h2>
-        {question.options.map((option) => {
+        {question.options.map(option => {
 
           let buttonClass = "answer-button";
 
