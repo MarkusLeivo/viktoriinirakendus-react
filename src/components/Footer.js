@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 function Footer() {
   const [showScrollTop, setShowScrollTop] = useState(false);
 
-  useEffect(() => {
+  useEffect(() => { // Üles kerimise nupp ilmub alla paremale kui piisavalt alla kerida.
     const handleScroll = () => {
       if (window.scrollY > 100) {
         setShowScrollTop(true);
@@ -27,9 +27,9 @@ function Footer() {
   return (
     <footer className="footer">
       {showScrollTop && (<button className="scroll-to-top" onClick={scrollToTop}> ÜLES </button>)}
-        <a href="https://github.com/MarkusLeivo/viktoriinirakendus-react" target="_blank" rel="noopener noreferrer" className="href-link">
-          GitHub
-        </a>
+      <a href="https://github.com/MarkusLeivo/viktoriinirakendus-react" target="_blank" rel="noopener noreferrer" className="href-link">
+        GitHub
+      </a>
     </footer>
   );
 }

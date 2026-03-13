@@ -15,8 +15,8 @@ code {
 
 :root {
   --display-size: 3.75rem;
-  --display-line: 4.375rem; 
-  
+  --display-line: 4.375rem;
+
   --title-1-size: 2.5rem;
   --title-1-line: 2.8125rem;
 
@@ -43,7 +43,7 @@ html {
 h1[data-type="display"] {
   font-family: 'Roboto';
   font-size: var(--display-size);
-  line-height: var(--display-line);           
+  line-height: var(--display-line);
   font-weight: 700;
 }
 
