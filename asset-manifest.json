@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/viktoriinirakendus-react/static/css/main.73865c49.css",
+    "main.css": "/viktoriinirakendus-react/static/css/main.bdfabf0e.css",
     "main.js": "/viktoriinirakendus-react/static/js/main.20909aa5.js",
     "static/js/453.f246cc7b.chunk.js": "/viktoriinirakendus-react/static/js/453.f246cc7b.chunk.js",
     "index.html": "/viktoriinirakendus-react/index.html",
-    "main.73865c49.css.map": "/viktoriinirakendus-react/static/css/main.73865c49.css.map",
+    "main.bdfabf0e.css.map": "/viktoriinirakendus-react/static/css/main.bdfabf0e.css.map",
     "main.20909aa5.js.map": "/viktoriinirakendus-react/static/js/main.20909aa5.js.map",
     "453.f246cc7b.chunk.js.map": "/viktoriinirakendus-react/static/js/453.f246cc7b.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.73865c49.css",
+    "static/css/main.bdfabf0e.css",
     "static/js/main.20909aa5.js"
   ]
 }
