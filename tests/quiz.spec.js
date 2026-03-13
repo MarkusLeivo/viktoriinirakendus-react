@@ -1,7 +1,7 @@
 import { test, expect } from '@playwright/test';
 
 test.beforeEach(async ({ page }) => {
-  await page.goto('http://localhost:3000');
+  await page.goto('https://MarkusLeivo.github.io/viktoriinirakendus-react');
 
   await page.evaluate(() => localStorage.clear()); // Peab tühjendama, et viktoriin algaks uuesti algusest.
 

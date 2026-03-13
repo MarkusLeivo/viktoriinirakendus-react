@@ -1,9 +1,9 @@
 function Header() {
   return (
     <header className="navbar">
-        <div class="meta-container"></div>
-        <div class="nav-container">
-            <img src="/ES_Logo.svg" alt="logo" className="logo" />
+        <div className="meta-container"></div>
+        <div className="nav-container">
+            <img src={process.env.PUBLIC_URL + "/ES_Logo.svg"} alt="logo" className="logo" />
         </div>
     </header>
   );

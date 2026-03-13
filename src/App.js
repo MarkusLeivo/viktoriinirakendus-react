@@ -78,7 +78,6 @@ function shuffleArray(array) {
 }
 
 function App() {
-  //const [introFinished, setIntroFinished] = useState(localStorage.getItem("introPlayed") === "true");
   const [start, setStart] = useState(localStorage.getItem("quizStart") === "true");
   const [currentQuestion, setCurrentQuestion] = useState(Number(localStorage.getItem("quizCurrent")) || 0);
   const [selectedAnswer, setSelectedAnswer] = useState(localStorage.getItem("quizSelected") || null);
@@ -116,22 +115,6 @@ function App() {
     localStorage.setItem("quizSelected", selectedAnswer);
     localStorage.setItem("quizFeedback", showFeedback);
   }, [start, currentQuestion, score, finish, answers, selectedAnswer, showFeedback]);
-
-  // if (!introFinished) {
-  //   return (
-  //     <video
-  //       autoPlay
-  //       muted
-  //       className="background-video"
-  //       onEnded={() => {
-  //         localStorage.setItem("introPlayed", "true");
-  //         setIntroFinished(true);
-  //       }}
-  //     >
-  //       <source src="/ES_LogoAnimation.mp4" type="video/mp4" />
-  //     </video>
-  //   );
-  // }
 
   if (!start) {
     return (
@@ -188,8 +171,6 @@ function App() {
           >
             Alusta uuesti
           </button>
-
-          {/* <h3>Tulemused</h3> */}
 
           <table data-testid="results-table" className="results-table" border="1">
             <thead>
